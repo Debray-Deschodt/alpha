@@ -1,0 +1,22 @@
+:root {
+  --font-text: 'Roboto', sans-serif;
+  --font-cheap: 'Shrikhand', cursive;
+  --primary-1: #f9ca24;
+  --primary-2: #22a6b3;
+  --danger-1: #ff7979;
+  --danger-2: #eb4d4b;
+  --success-1: #badc58;
+  --success-2: #6ab04c;
+  --grey-1: #f6f6f6;
+  --grey-2: #95afc0;
+  --grey-3: #535c68;
+  --text-color: #130f40;
+  --text-primary-color: #ffffff;
+  --light: rgba(180, 138, 138, 0.053);
+  --shadowCard: rgba(0, 0, 0, 0.974);
+  --pinkCard: #dd2eae;
+}
+
+body {
+  font-family: var(--font-family);
+}
