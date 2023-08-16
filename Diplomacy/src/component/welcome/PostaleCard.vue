@@ -89,38 +89,40 @@ function inputTextEmit() {
 </script>
 
 <template>
-    <Transition name='appear' mode="out-in">
-        <KeepAlive>
-            <TheInput v-if='state.turnIt && !state.username.validation' @value='inputValueEmit' name='username'
-                description="Nom d'utilisateur" :sizeMax="12" type='text' @enter="inputEnterEmit" />
-            <TheInput v-else-if='state.turnIt && !state.password.validation && state.username.validation'
-                @value='inputValueEmit' name='password' description='Mot de passe' :sizeMax="22" :type="passwordType"
-                @enter="inputEnterEmit" @text="inputTextEmit" />
-        </KeepAlive>
-    </Transition>
+    <section>
+        <Transition name='appear' mode="out-in">
+            <KeepAlive>
+                <TheInput v-if='state.turnIt && !state.username.validation' @value='inputValueEmit' name='username'
+                    description="Nom d'utilisateur" :sizeMax="12" type='text' @enter="inputEnterEmit" />
+                <TheInput v-else-if='state.turnIt && !state.password.validation && state.username.validation'
+                    @value='inputValueEmit' name='password' description='Mot de passe' :sizeMax="22" :type="passwordType"
+                    @enter="inputEnterEmit" @text="inputTextEmit" />
+            </KeepAlive>
+        </Transition>
 
-    <Transition name="turnedIt" mode="out-in">
-        <section v-if='!state.turnIt' @click='state.turnIt = !state.turnIt' class='postaleCard theFront'>
-        </section>
-        <section v-else class='postaleCard'>
-            <theBack :username=state.username.value :password="state.password.value" @modifier="inputModifierEmit"
-                @done="emit('done', 'news')" />
-        </section>
-    </Transition>
+        <Transition name="turnedIt" mode="out-in">
+            <section v-if='!state.turnIt' @click='state.turnIt = !state.turnIt' class='postaleCard theFront'>
+            </section>
+            <section v-else class='postaleCard'>
+                <theBack :username=state.username.value :password="state.password.value" @modifier="inputModifierEmit"
+                    @done="emit('done', 'news')" />
+            </section>
+        </Transition>
 
-    <Transition name="darkTurn" mode="out-in">
-        <section v-if='!state.turnIt' class="box2" @click='state.turnIt = !state.turnIt'></section>
-    </Transition>
+        <Transition name="darkTurn" mode="out-in">
+            <section v-if='!state.turnIt' class="box2" @click='state.turnIt = !state.turnIt'></section>
+        </Transition>
 
-    <Transition name='timbreAppear' mode="in-out">
-        <section v-if='state.password.validation' class="timbre"></section>
-    </Transition>
-    <Transition name="firstFinger">
-        <section v-if='state.password.validation' class='fingerPrint fingerprint1'></section>
-    </Transition>
-    <Transition name="secondFinger">
-        <section v-if='state.password.validation' class='fingerPrint fingerprint2'></section>
-    </Transition>
+        <Transition name='timbreAppear' mode="in-out">
+            <section v-if='state.password.validation' class="timbre"></section>
+        </Transition>
+        <Transition name="firstFinger">
+            <section v-if='state.password.validation' class='fingerPrint fingerprint1'></section>
+        </Transition>
+        <Transition name="secondFinger">
+            <section v-if='state.password.validation' class='fingerPrint fingerprint2'></section>
+        </Transition>
+    </section>
 </template>
 
 <style scoped lang="scss">

@@ -40,7 +40,7 @@ function done(from: String) {
 
 
 <template>
-    <body @click="done('all')">
+    <section class="component menu" @click="done('all')">
         <section v-if="state.active.content" class="banner">
             <h1>Confit</h1>
             <h2 @click.stop="emit('done', 'goPlay')">Jouer</h2>
@@ -58,28 +58,20 @@ function done(from: String) {
             </Transition>
         </KeepAlive>
         <Catalog @done="done" class='absolute' v-if="state.active.catalog" />
-    </body>
+    </section>
 </template>
 
 
 <style scoped lang="scss">
 @use '../../assets/base.scss' as *;
 
-.absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-}
-
 h1 {
     font-size: 8vw;
     margin: 0px;
 }
 
-body {
+.menu {
     background-image: url(../../img/menu.jpg);
-
     color: white;
     margin-top: 0px;
     margin-left: 0px;
