@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import news from '../news/TheNews.vue'
 import postalCard from './PostaleCard.vue'
 import Fullscreen from './FullscreenButton.vue'
 
-const heKnowsInfo = ref(false);
+const state = reactive({
+  active: {
+    info: true,
+    postalCard: true,
+  }
+})
 
 const emit = defineEmits<{
   (e: 'done', from: string): void
@@ -22,19 +27,23 @@ function emitPassword(value: string) {
 
 function done(from: string) {
   switch (from) {
-    case 'welcome': emit('done', 'welcome'); break
-    case 'news': heKnowsInfo.value = true; break
+    case 'welcome': state.active.postalCard = false; console.log(state.active.postalCard); setTimeout(() => { emit('done', 'welcome') }, 2000); break
+    case 'news': state.active.info = false; break
   }
 }
 
 </script>
 
 <template>
-  <section>
+  <section class="absolute">
     <Transition name="fadeOut">
-      <news v-show='!heKnowsInfo' @click="heKnowsInfo = true" />
+      <news v-show='state.active.info' @click="state.active.info = false" />
     </Transition>
-    <postalCard @passwordValue="emitPassword" @usernameValue="emitUsername" @done="done" />
+    <Transition name="fadeOut2">
+      <postalCard v-show="state.active.postalCard" @passwordValue="emitPassword" @usernameValue="emitUsername"
+        @done="done" />
+    </Transition>
+
     <Fullscreen />
   </section>
 </template>
@@ -44,7 +53,15 @@ function done(from: string) {
 @use '../../assets/base.scss' as *;
 
 body {
+  // background: linear-gradient(to left, black, rgb(41, 26, 3));
   background-color: black;
+}
+
+.absolute {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 @keyframes fadeOut {
@@ -59,5 +76,9 @@ body {
 
 .fadeOut-leave-active {
   animation: fadeOut 0.5s
+}
+
+.fadeOut2-leave-active {
+  animation: fadeOut 2s
 }
 </style>

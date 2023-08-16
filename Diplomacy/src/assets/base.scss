@@ -17,6 +17,24 @@
   --pinkCard: #dd2eae;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--font-family);
+  background-color: black;
+}
+
+h2 {
+  margin-top: 2vh;
+}
+
+.component {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
 }
