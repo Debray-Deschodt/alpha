@@ -49,7 +49,7 @@ function done(from: string) {
 </template>
 
 <!--  -->
-<style lang="scss">
+<style scoped lang="scss">
 @use '../../assets/base.scss' as *;
 
 body {
