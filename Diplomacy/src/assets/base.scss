@@ -50,8 +50,8 @@ h2 {
 
 .component-A4 {
   @extend %component-full;
-  height: 140vw;
-  background-color: rgb(255, 255, 255);
+  height: 30vw;
+  background: linear-gradient(to bottom, white, rgb(220, 220, 220));
   overflow: hidden;
 }
 

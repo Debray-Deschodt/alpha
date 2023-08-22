@@ -1,6 +1,3 @@
-<script setup lang='ts'>
-</script>
-
 <template>
     <section class="component-A4">
         <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum</h1>
@@ -24,13 +21,7 @@
 </template>
 
 <style scoped lang='scss'>
-@use '../../assets/base.scss' as *;
-
 .component-A4 {
-    top: 0vh;
-    left: 0vw;
-    height: 30%;
-    width: 64.28%;
     font-size: 2vw; //1.8vw for width:50vw 
 }
 

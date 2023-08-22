@@ -1,0 +1,59 @@
+@keyframes foldTop {
+  25% {
+    color: black;
+  }
+
+  32% {
+    color: rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    -ms-transform: rotateX(-170deg);
+    /* IE 9 */
+    -moz-transform: rotateX(-170deg);
+    /* Firefox */
+    -webkit-transform: rotateX(-170deg);
+    /* Safari and Chrome */
+    -o-transform: rotateX(-170deg);
+    /* Opera */
+    color: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes foldBot {
+  25% {
+    color: black;
+  }
+
+  32% {
+    color: rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    -ms-transform: rotateX(179.999deg);
+    /* IE 9 */
+    -moz-transform: rotateX(179.999deg);
+    /* Firefox */
+    -webkit-transform: rotateX(179.999deg);
+    /* Safari and Chrome */
+    -o-transform: rotateX(179.999deg);
+    /* Opera */
+    color: rgba(255, 255, 255, 0);
+  }
+}
+
+.foldBot-enter-active {
+  animation: foldBot 1.5s reverse;
+}
+
+.foldTop-enter-active {
+  animation: foldTop 1s reverse;
+}
+
+.foldTop-leave-active {
+  animation: foldTop 1.5s;
+}
+
+.foldBot-leave-active {
+  animation: foldBot 1s;
+}

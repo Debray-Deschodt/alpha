@@ -15,11 +15,11 @@ provide('password', password)
 
 const state = reactive({
   active: {
-    welcome: true,
+    welcome: false,
     menu: false,
     play: false,
     host: false,
-    rules: false,
+    rules: true,
     tutorial: false,
   },
   account: {
@@ -50,7 +50,6 @@ function done(from: String) {
 <template>
   <Welcome v-if="state.active.welcome" @passwordValue="setPassword" @usernameValue="setUsername" @done="done" />
   <Menu v-if="state.active.menu" @done='done' />
-  <Rules class="component" v-if="state.active.rules" @done='done' />
-  <Tutorial class="component" v-if="state.active.tutorial" @done='done' />
+  <Rules v-if="state.active.rules" @done='done' />
+  <Tutorial v-if="state.active.tutorial" @done='done' />
 </template>
-
