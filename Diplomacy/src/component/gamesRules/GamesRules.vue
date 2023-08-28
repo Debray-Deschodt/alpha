@@ -20,7 +20,7 @@ const state = reactive({
 <template>
     <button @click="emit('done', 'rules')">Retour menu</button>
     <button @click="state.first.open = !state.first.open">fermer/ouvrir</button>
-    <FirstStep :open="state.first.open" v-show="state.first.active" />
+    <FirstStep :size="1" :open="state.first.open" v-show="state.first.active" />
 </template>
 
 <style scoped lang="scss">
