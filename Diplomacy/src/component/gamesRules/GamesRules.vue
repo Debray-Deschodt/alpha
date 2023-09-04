@@ -1,34 +1,32 @@
-<script setup lang='ts'>
+<script setup lang="ts">
+import { reactive } from 'vue'
+import FirstStep from '../usable/letter/TheLetter.vue'
 
 const emit = defineEmits<{
-    (e: 'done', from: String): void
+    (e: 'done', from: string): void
 }>()
 
+const state = reactive({
+    first: {
+        active: true,
+        open: true
+    },
+    second: {
+        active: false
+    }
+})
 </script>
 
 <template>
-    <section class='background'>
-        <section class="gif"></section>
-    </section>
+    <button @click="emit('done', 'rules')">Retour menu</button>
+    <button @click="state.first.open = !state.first.open">fermer/ouvrir</button>
+    <FirstStep :size="0.7" :open="state.first.open" v-show="state.first.active" />
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @use '../../assets/base.scss' as *;
 
-.background {
-    background-color: antiquewhite;
-    height: 100vh;
-    width: 100vw;
-    margin: 0px;
-    padding: 0px;
-}
-
-.gif {
-    background-image: url('../../sprite/BérangèreCanard/BerangèreJaune1920vw50is.gif');
-    height: 100vh;
-    width: 100vw;
-    margin: 0px;
-    padding: 0px;
-    background-size: 100vw 100vh;
+button {
+    margin: 10vw 0 0 80vw;
 }
 </style>

@@ -15,11 +15,11 @@ provide('password', password)
 
 const state = reactive({
   active: {
-    welcome: true,
+    welcome: false,
     menu: false,
     play: false,
     host: false,
-    rules: false,
+    rules: true,
     tutorial: false,
   },
   account: {
@@ -27,8 +27,6 @@ const state = reactive({
     password: password,
   }
 })
-
-
 
 //this function prolongs the @done and manages the active components.
 function done(from: String) {
@@ -50,11 +48,8 @@ function done(from: String) {
 </script>
 
 <template>
-  //
   <Welcome v-if="state.active.welcome" @passwordValue="setPassword" @usernameValue="setUsername" @done="done" />
   <Menu v-if="state.active.menu" @done='done' />
-  <Rules class='absolute' v-if="state.active.rules" @done='done' />
-  <Tutorial class='absolute' v-if="state.active.tutorial" @done='done' />
-  //
+  <Rules v-if="state.active.rules" @done='done' />
+  <Tutorial v-if="state.active.tutorial" @done='done' />
 </template>
-
