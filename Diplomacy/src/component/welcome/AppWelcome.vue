@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import news from '../news/TheNews.vue'
+import news from './news/TheNews.vue'
 import postalCard from './PostaleCard.vue'
 import Fullscreen from './FullscreenButton.vue'
 
@@ -35,12 +35,14 @@ function done(from: string) {
 </script>
 
 <template>
-  <section class="absolute">
+  <section class="component-full">
+
     <Transition name="fadeOut">
       <news v-show='state.active.info' @click="state.active.info = false" />
     </Transition>
+
     <Transition name="fadeOut2">
-      <postalCard v-show="state.active.postalCard" @passwordValue="emitPassword" @usernameValue="emitUsername"
+      <postalCard class='' v-show="state.active.postalCard" @passwordValue="emitPassword" @usernameValue="emitUsername"
         @done="done" />
     </Transition>
 
@@ -51,27 +53,10 @@ function done(from: string) {
 <!--  -->
 <style scoped lang="scss">
 @use '../../assets/base.scss' as *;
+@use '../../assets/animation.scss' as *;
 
-body {
-  // background: linear-gradient(to left, black, rgb(41, 26, 3));
+.component-full{
   background-color: black;
-}
-
-.absolute {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }
 
 .fadeOut-leave-active {

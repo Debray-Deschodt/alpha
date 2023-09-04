@@ -1,6 +1,6 @@
-<script setup lang='ts'>
-import { reactive } from "vue";
-import FirstStep from "./firstStep/FirstStep.vue";
+<script setup lang="ts">
+import { reactive } from 'vue'
+import FirstStep from '../usable/letter/TheLetter.vue'
 
 const emit = defineEmits<{
     (e: 'done', from: string): void
@@ -9,22 +9,22 @@ const emit = defineEmits<{
 const state = reactive({
     first: {
         active: true,
-        open: true,
+        open: true
     },
     second: {
-        active: false,
-    },
+        active: false
+    }
 })
 </script>
 
 <template>
     <button @click="emit('done', 'rules')">Retour menu</button>
     <button @click="state.first.open = !state.first.open">fermer/ouvrir</button>
-    <FirstStep :size="1" :open="state.first.open" v-show="state.first.active" />
+    <FirstStep :size="0.7" :open="state.first.open" v-show="state.first.active" />
 </template>
 
 <style scoped lang="scss">
-@use "../../assets/base.scss" as *;
+@use '../../assets/base.scss' as *;
 
 button {
     margin: 10vw 0 0 80vw;

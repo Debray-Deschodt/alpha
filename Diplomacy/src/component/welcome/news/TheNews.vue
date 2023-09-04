@@ -1,6 +1,5 @@
 <template>
-    <body>
-        <section class="box">
+        <section class="component">
             <p class="quitter"> cliquer<br>pour quitter</p>
             <p><strong> Sheety </strong>version 0.3.0</p>
             <p><strong>Express </strong> determine maintenant la partie serveur/backend de notre application. Vous pourrez
@@ -35,7 +34,6 @@
             </p>
 
         </section>
-    </body>
 </template>
     
 <script setup lang="ts" >
@@ -44,13 +42,10 @@
 </script>
 
 <style scoped lang="scss">
-@use '../../assets/base.scss' as *;
+@use '../../../assets/base.scss' as *;
 
-body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+.component {
+    z-index: 10 !important;
 
     width: 30vw;
     height: 60vh;
@@ -60,8 +55,8 @@ body {
 
     font-size: 1em;
     font-family: var(--font-text);
-    color: var(--text-primary-color);
-    background: linear-gradient(to left, rgba(123, 123, 123, 0.656), rgb(0, 0, 0));
+    color: white;
+    background: linear-gradient(to left, rgba(123, 123, 123, 0.656), rgb(67, 67, 67));
 
     align-items: center;
 
@@ -73,6 +68,10 @@ body {
     border: 0px #95afc0 solid;
     border-radius: 10px;
     overflow: auto;
+
+    &:hover{
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.667), var(--shadowCard));
+    }
 }
 
 ::-webkit-scrollbar {
@@ -89,12 +88,6 @@ body {
 }
 
 
-body:hover {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.667), var(--shadowCard));
-
-}
-
-//#95afc0
 strong {
     color: rgb(194, 217, 250);
     font-size: 1.5em;

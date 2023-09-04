@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { onMounted, reactive } from 'vue';
-import First from './FirstStepContent.vue'
+import Content from './LetterContent.vue'
 
 const props = defineProps({
     open: Boolean,
@@ -31,8 +31,9 @@ onMounted(() => {
     document.querySelector(".bot")?.setAttribute("style", letterStyle + 'top:' + props.size * 60 + 'vw')
     document.querySelector(".bot .child")?.setAttribute("style", "top: -" + 60 * props.size + "vw; width:" + props.size * 64.22 + "vw; height:" + 90 * props.size + "vw;")
     document.querySelector(".mid .child")?.setAttribute("style", "top: -" + 30 * props.size + "vw; width:" + props.size * 64.22 + "vw; height:" + 60 * props.size + "vw;")
-    document.querySelector(".bot-close .child")?.setAttribute("style", "top : -" + 90 * props.size + "vw")
+    document.querySelector(".bot-close .child")?.setAttribute("style", letterStyle + "top : -" + 20 * props.size + "vw")
     document.querySelector(".bot-close")?.setAttribute("style", letterStyle + "vw; top:" + 60 * props.size + "vw")
+    document.querySelector("#lettre")?.setAttribute("style", "font-size: calc(2vw *" + props.size + ");")
     state.active.close.bot = false
 
 })
@@ -40,27 +41,31 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class='component'>
+    <section id="lettre" class='component'>
+
         <div class='mid component-full'>
-            <First :size="props.size" class='child' />
+            <Content :size="props.size" class='child' />
         </div>
+
         <Transition name="foldBot" @before-enter="state.active.close.bot = false"
             @after-leave="state.active.close.bot = true">
             <div class='bot component-full' v-show="props.open">
-                <First :size="props.size" class='child' />
+                <Content :size="props.size" class='child' />
             </div>
         </Transition>
+
         <div class='bot component-full bot-close resized' v-show="state.active.close.bot">
-            <First :size="props.size" class='child' />
+            <Content :size="props.size" class='child' />
         </div>
+
         <Transition name="foldTop" @before-enter="state.active.close.top = false"
             @after-leave="state.active.close.top = true">
             <div class='top component-full resized' v-show="props.open">
-                <First :size="props.size" class='child resized' />
+                <Content :size="props.size" class='child resized' />
             </div>
         </Transition>
         <div class='top component-full top-close resized' v-show="state.active.close.top">
-            <First :size="props.size" class='child resized' />
+            <Content :size="props.size" class='child resized' />
         </div>
     </section>
 </template>
@@ -70,6 +75,10 @@ onMounted(() => {
 @use "../../../assets/base.scss" as *;
 @use "../../../assets/animation.scss" as *;
 
+.mid,
+.top .child,
+.mid .child,
+.bot .child,
 %sized {
     // background: linear-gradient(to bottom, white, rgb(245, 245, 245));
     background: linear-gradient(to bottom, white, rgb(220, 220, 220));
@@ -102,12 +111,5 @@ onMounted(() => {
 
 .mid {
     left: 10vw;
-}
-
-.mid,
-.top .child,
-.mid .child,
-.bot .child {
-    @extend %sized;
 }
 </style>

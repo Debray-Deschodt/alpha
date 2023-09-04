@@ -42,6 +42,16 @@
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .foldBot-enter-active {
   animation: foldBot 1.5s reverse;
 }
