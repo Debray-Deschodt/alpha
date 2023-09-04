@@ -1,7 +1,3 @@
-Ici 
-    On gère l'affichage des inputs utilisateur et password récuperer depuis PostaleCard.vue
-    On affiche le background de la carte postale.
-
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
