@@ -48,6 +48,7 @@ function done(from: String) {
             <h2 @click.stop="emit('done', 'goTutorial')">Didacticiel</h2>
             <h2 @click.stop="emit('done', 'goRules')">Règle du jeu</h2>
             <h2 @click.stop="done('goCatalog')">Catalogue</h2>
+            <h2 @click.stop="emit('done', 'goBlog')">Journal live</h2>
             <h2 @click.stop="done('goSettings')">Options</h2>
             <h2 @click.stop="done('goAccount')">Mon compte ({{ username }})</h2>
         </section>

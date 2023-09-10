@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@vee-validate/zod": "^4.11.1",
+    "axios": "^1.5.0",
     "vee-validate": "^4.11.1",
     "vue": "^3.3.4",
     "zod": "^3.21.4"
