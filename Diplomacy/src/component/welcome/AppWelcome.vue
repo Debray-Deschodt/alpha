@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
 import news from './news/TheNews.vue'
 import postalCard from './PostaleCard.vue'
 import Fullscreen from './FullscreenButton.vue'
+import { reactive, ref } from 'vue';
 
 const state = reactive({
   active: {
@@ -55,7 +55,7 @@ function done(from: string) {
 @use '../../assets/base.scss' as *;
 @use '../../assets/animation.scss' as *;
 
-.component-full{
+.component-full {
   background-color: black;
 }
 

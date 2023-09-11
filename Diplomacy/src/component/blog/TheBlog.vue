@@ -67,7 +67,12 @@ function refresh() {
 
 function prePost() {
     state.active.post = true
-    postItForPost.value = (generatePostIt("text"))
+    postItForPost.value = (generatePostIt(""))
+}
+
+function setTextForPost(text: string) {
+    postItForPost.value.text = text
+    console.log(postItForPost.value.text)
 }
 
 refresh()
@@ -80,15 +85,18 @@ refresh()
         <PostItUp v-for="postIt in postIts.filter((postIt) => postIt.flat === 0)" :data="postIt" :key="postIt.index" />
         <PostItFlat v-for="postIt in postIts.filter((postIt) => postIt.flat === 1)" :data="postIt" :key="postIt.index" />
 
-        <div class="button" style="top: 5vh">
-            <button class="menu" @click.stop="emit('done', 'blog')">MENU</button>
-            <button class="post" v-if="!state.active.post" @click.stop="prePost()">POST</button>
-            <button class="post" v-else @click.stop="validatePost()">VALIDER</button>
+        <div class="button">
+            <button @click.stop="emit('done', 'blog')">MENU</button>
+            <button v-if="!state.active.post" @click.stop="prePost()">POST</button>
+            <button v-else @click.stop="validatePost()">SEND</button>
 
         </div>
-        <div class="button" style="top: 8vh">
-            <Post v-show="state.active.post" :data="postItForPost" />
-        </div>
+        <Transition name="posted">
+            <div v-if="state.active.post" class="post">
+                <Post :data="postItForPost" @text="setTextForPost" />
+            </div>
+        </Transition>
+
 
     </section>
 </template>
@@ -96,12 +104,35 @@ refresh()
 <style scoped lang='scss'>
 @use '../../assets/base.scss' as *;
 
+@keyframes posted {
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+.posted-leave-active {
+    animation: posted 0.4s;
+}
+
 .button {
     position: sticky;
     z-index: 3000;
+    top: 5vh;
     left: 45vw;
-    display: flex;
     width: 10vw;
+    display: flex;
     justify-content: space-evenly;
+    gap: 1vw
+}
+
+.post {
+    position: sticky;
+    z-index: 3000;
+    left: 30vw;
+    top: 18vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
 }
 </style>

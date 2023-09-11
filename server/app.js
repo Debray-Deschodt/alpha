@@ -12,4 +12,4 @@ app.use(morgan("tiny"))
 
 app.use(router)
 
-app.listen(3001)
+app.listen(3000)

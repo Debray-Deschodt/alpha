@@ -16,7 +16,6 @@ function toggleFullScreen() {
 </script>
 
 <template>
-    <audio autoplay :muted="muted" src="./src/audio/musique.mp3"></audio>
     <section class='Button' @click="toggleFullScreen()"></section>
 </template>
 

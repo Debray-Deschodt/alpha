@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const postItSchema = schema({
-  text : {type: String , required: true},
+  text : {type: String , required: false},
   color : {type: String ,required: true},
   top : {type: Number , required: true},
   left : {type: Number , required : true},
