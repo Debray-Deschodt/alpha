@@ -1,10 +1,11 @@
 <script setup lang='ts'>
 import axios, { type AxiosResponse } from 'axios'
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import PostItUp from './PostItUp.vue'
 import PostItFlat from './PostItFlat.vue'
 import Post from './PostItForPost.vue'
 import type { PostItInterface } from '@/interface/postIt.interface';
+import type { PostItDragInterface } from '@/interface/postitdrag.interface'
 
 const emit = defineEmits<{
     (e: 'done', from: string): void
@@ -30,12 +31,21 @@ const postItForPost = ref({
     flat: 1
 })
 
+const drag = ref<PostItDragInterface>({
+    shiftX: 0,
+    shiftY: 0,
+    lastIndex: 0,
+    selected: null
+})
+
+
 const state = reactive({
     active: {
         post: false
     }
 })
 const color = ["ff9ff3", "feca57", "ff6b6b", "48dbfb", "1dd1a1"]
+
 
 function generatePostIt(userText: string) {
     return {
@@ -74,16 +84,46 @@ function setTextForPost(text: string) {
     postItForPost.value.text = text
     console.log(postItForPost.value.text)
 }
+function selectPostIt(event: MouseEvent) {
+    drag.value.selected = (event.target as HTMLElement).parentElement
+    drag.value.selected!.style.zIndex = (2000 + drag.value.lastIndex) + ''
+    drag.value.lastIndex++
+
+    const rectangle = drag.value.selected!.getBoundingClientRect();
+    console.log(event)
+    drag.value.shiftX = event.pageX - rectangle.left - document.querySelector('#blog')!.scrollLeft
+    drag.value.shiftY = event.pageY - rectangle.top - document.querySelector('#blog')!.scrollTop
+    move(event);
+    (document.querySelector('#blog') as HTMLElement).addEventListener('mousemove', mousemove)
+}
+
+function mouseup(event: MouseEvent) {
+    (document.querySelector('#blog') as HTMLElement).removeEventListener('mousemove', mousemove)
+}
+
+function mousemove(event: MouseEvent) {
+    move(event)
+}
+
+function move(event: MouseEvent) {
+    drag.value.selected!.style.left = event.pageX - drag.value.shiftX + 'px';
+    drag.value.selected!.style.top = event.pageY - drag.value.shiftY + 'px';
+}
 
 refresh()
 
 </script>
 
 <template>
-    <section class="component-full">
+    <section id="blog" class="component-full">
 
-        <PostItUp v-for="postIt in postIts.filter((postIt) => postIt.flat === 0)" :data="postIt" :key="postIt.index" />
-        <PostItFlat v-for="postIt in postIts.filter((postIt) => postIt.flat === 1)" :data="postIt" :key="postIt.index" />
+        <PostItUp v-for="postIt in postIts.filter((postIt) => postIt.flat === 0)" :id="'postIt' + postIt.index"
+            :data="postIt" :key="postIt.index" @dragstart.prevent draggable="true" @mousedown="selectPostIt"
+            @mouseup="mouseup" />
+
+        <PostItFlat v-for="postIt in postIts.filter((postIt) => postIt.flat === 1)" :id="'postIt' + postIt.index"
+            :data="postIt" :key="postIt.index" @dragstart.prevent draggable="true" @mousedown="selectPostIt"
+            @mouseup="mouseup" />
 
         <div class="button">
             <button @click.stop="emit('done', 'blog')">MENU</button>
