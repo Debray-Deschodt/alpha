@@ -8,6 +8,7 @@ defineProps<{
 
 const emit = defineEmits<{
     (e: 'text', text: string): void
+    (e: 'cancel'): void
 }>()
 
 const text = ref("")
@@ -33,16 +34,33 @@ function isOverflown() {
 </script>
 
 <template>
-    <div class="post" :style="'background-color:#' + data.color">
+    <section class="post" :style="'background-color:#' + data.color">
+        <div class="button">
+            <button @click="emit('cancel')">Poster</button>
+            <button @click="emit('cancel')">Annuler</button>
+        </div>
         <textarea disabled="true" @keyup="isOverflown()" @keydown="isOverflown()" id='textPostIt' name='text'
             placeholder="Un petit message..." class="textTrue" v-model="text" />
         <textarea ref="input" @keyup="isOverflown()" @keydown="isOverflown()" id='textPostItSimulation' name='text'
-            placeholder="Un petit message..." class="textSimulation" v-model="textSimulation" />
-    </div>
+            class="textSimulation" v-model="textSimulation" />
+    </section>
 </template>
 
 <style scoped lang='scss'>
 @use '../../assets/base.scss' as *;
+
+.button {
+    width: 95%;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    margin: 1vw;
+
+}
+
+button {
+    font-size: 1vw;
+}
 
 %text {
     position: absolute;
@@ -75,7 +93,14 @@ function isOverflown() {
 }
 
 .post {
+    position: sticky;
+    z-index: 3000;
+    left: 30vw;
+    top: 18vh;
+    width: 40vw;
     height: 40vw;
+    display: flex;
+    justify-content: center;
     border-radius: 0.25vw;
     box-shadow:
         2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),

@@ -1,8 +1,4 @@
 <script setup lang='ts'>
-import { ref } from 'vue';
-
-const muted = ref(true);
-
 function toggleFullScreen() {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
@@ -12,7 +8,6 @@ function toggleFullScreen() {
         }
     }
 }
-
 </script>
 
 <template>
@@ -21,21 +16,22 @@ function toggleFullScreen() {
 
 <style scoped lang='scss'>
 .Button {
-    position: absolute;
-    z-index: 3001;
-    top: 88vh;
+    position: fixed;
+    top: 90vh;
     left: 93vw;
-    padding: 3vw;
-    background-position-x: 50%;
+    padding: 2vw;
+    z-index: 3001;
     background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(../../img/sound.png);
-    background-size: 5vw 4vw;
-    background-color: black;
+    filter: invert(1);
+    transition: all 0.1s;
+    opacity: 0.75;
 }
 
 .Button:hover {
-    top: 87.5vh;
-    left: 92.5;
-    background-size: 6vw 5vw;
+    transform-origin: 50% 50%;
+    transform: scale(1.1);
+    transition: all 0.1s
 }
 </style>

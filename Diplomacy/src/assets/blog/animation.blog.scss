@@ -1,0 +1,10 @@
+@keyframes scale {
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+.posted-leave-active {
+    animation: scale 0.4s;
+}

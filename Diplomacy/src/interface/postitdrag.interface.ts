@@ -1,6 +1,9 @@
 export interface PostItDragInterface{
     shiftX : number;
     shiftY: number;
-    lastIndex: number;
     selected: HTMLElement|null;
+    top: number;
+    left: number;
+    lastPageX: number;
+    lastPageY: number;
 }
