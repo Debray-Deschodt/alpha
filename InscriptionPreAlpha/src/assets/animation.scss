@@ -1,0 +1,101 @@
+@keyframes foldTop {
+  25% {
+    color: black;
+  }
+
+  32% {
+    color: rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    -ms-transform: rotateX(-170deg);
+    /* IE 9 */
+    -moz-transform: rotateX(-170deg);
+    /* Firefox */
+    -webkit-transform: rotateX(-170deg);
+    /* Safari and Chrome */
+    -o-transform: rotateX(-170deg);
+    /* Opera */
+    color: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes foldBot {
+  25% {
+    color: black;
+  }
+
+  32% {
+    color: rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    -ms-transform: rotateX(179.999deg);
+    /* IE 9 */
+    -moz-transform: rotateX(179.999deg);
+    /* Firefox */
+    -webkit-transform: rotateX(179.999deg);
+    /* Safari and Chrome */
+    -o-transform: rotateX(179.999deg);
+    /* Opera */
+    color: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes windy {
+  33% {
+    border-top-left-radius: 10% 60%;
+    border-top-right-radius: 5% 70%;
+    border-bottom-right-radius: 45% 10%;
+    border-bottom-left-radius: 2% 70%;
+  }
+
+  66% {
+    border-top-left-radius: 15% 70%;
+    border-top-right-radius: 10% 85%;
+    border-bottom-right-radius: 55% 5%;
+    border-bottom-left-radius: 7% 85%;
+  }
+}
+
+@keyframes windy2 {
+  25%{
+    border-bottom-left-radius: 5% 60%;
+    transform: rotateX(6deg)
+  }
+  50% {
+    border-bottom-left-radius: 3% 60%;
+    transform: rotateX(5deg)
+  }
+  75%{
+    border-bottom-left-radius: 5% 60%;
+    transform: rotateX(6deg)
+  }
+}
+
+@keyframes windyShadow {
+  25% {
+    border-bottom-left-radius: 5% 60%;
+    transform: scaleY(0.98);
+  }
+
+  50% {
+    border-bottom-left-radius: 3% 60%;
+    transform: scaleY(0.982);
+  }
+
+  75% {
+    border-bottom-left-radius: 5% 60%;
+    transform: scaleY(0.98);
+  }
+}

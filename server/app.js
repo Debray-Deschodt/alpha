@@ -1,17 +1,21 @@
 const express = require("express")
 const app = express()
+require("./database")
 const path = require("path")
 const morgan = require("morgan")
-require("./database");
-const router = require("./routes");
-const cookieParser = require("cookie-parser");
+
+exports.app = app
+require('./config/session.config')
+require('./config/passport.config')
+
+const router = require("./routes")
 
 app.use(express.static(path.join(__dirname, 'client-build')))
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(morgan("tiny"))
-app.use(cookieParser("CookieA196219990470aSignature"))
+
 
 app.use(router)
 
-app.listen(3000)
+module.exports = app

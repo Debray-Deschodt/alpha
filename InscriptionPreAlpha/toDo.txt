@@ -1,0 +1,74 @@
+___________________ A Faire ____________________
+V-----bug-----V
+resoudre le bug dans le blog de d'agrandissement de la page en metant un postit trop bas
+corriger le bug de deplacement de postit
+corriger le bug de retour a la ligne
+V---serveur---V
+renouvellement automatique du certificat https
+V----blog-----V
+faire une animation de postit lorsque l'on en deplace un, en fonction de la vitesse de la souris 
+enlever le correcteur orthographique de la partie post/visualisateur
+V-----menu----V
+animation berangere
+animation oscar
+faire un curseur pour le menu
+finir la seconde page de journal
+son de machine a ecrire
+faire des queries sur le form d'inscription a la prealpha pour recuperer l'adresse mail.
+V--connection--V
+une section a propos
+________________________________________________
+finir la premiere page de journal
+faire une affiche journal
+elargir la zone d'ombre des piles de feuille
+
+
+_____________________Fait_______14/10___________
+faire le formulaire d'inscription a la beta
+ajouter une page reglage et lancer une partie et journal
+un bouton quitter dans le menu
+ameliorer le menu connection
+des session persistante
+rajouter l'ip de l'utilisateur lors du post
+rajouter le nom d'utilisateur lors du post
+retirer la partie rotate de la base de donnees
+bug remise a zero du son postit
+corriger le bug du titre Uchronie qui ne disparait pas
+modification legere du texte 
+________________________________________________
+
+_____________________Fait_______13/10___________
+modifier le texte des piles de feuille de papier
+Faire un menu inscription/connection
+musique postit
+modifier la taille du postIt de visualisation pour qu'il rentre dans tout les ecrans
+mise en place de pm2
+changement de systeme d'exploitation sur le serveur
+changer le port du server et son mot de passe
+________________________________________________
+
+_____________________Fait_______12/10___________
+corriger l'affiche d'enregistrement, on dirait que c'est halloween
+faire des animations pour les postits
+modifier la couleur de la scrollbar
+mettre une option scroll dans l'application postit
+faire des filtres de plies pour les affiches
+faire des boutons personalises pour les affiches
+modifier le fond d'affiche pour qu'il couvre les autres affiches
+modifier les couleur de l'affiche register
+________________________________________________
+
+____________________ Fait ______11/10___________
+faire en sorte qu'une seule affiche puisse etre active a la fois.
+mettre une affiche regle dans le menu
+faire une affiche a propos
+fin du loader avec une touche
+empecher la selection du texte
+Remettre un visualisateur de postit
+inverser les couleur du bouton pleine ecran dans le chargement
+mettre une affiche inscription dans le menu 
+avoir un certificat https
+avoir un compte github rien que pour le site 
+publier le site 
+reduire le temps entre le clic sur le bouton ranger l'affiche et le rangement
+_________________________________________________

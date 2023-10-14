@@ -1,4 +1,12 @@
 <script setup lang='ts'>
+
+const props = defineProps({
+    black: {
+        type: Boolean,
+        default: true
+    }
+})
+
 function toggleFullScreen() {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
@@ -8,14 +16,19 @@ function toggleFullScreen() {
         }
     }
 }
+
+function color(black: Boolean) {
+    return (black === true) ? 'filter: invert(1);' : ''
+}
+
 </script>
 
 <template>
-    <section class='Button' @click="toggleFullScreen()"></section>
+    <section class='fullscreenButton' :style='color(props.black)' @click="toggleFullScreen()"></section>
 </template>
 
 <style scoped lang='scss'>
-.Button {
+.fullscreenButton {
     position: fixed;
     top: 90vh;
     left: 93vw;
@@ -24,14 +37,14 @@ function toggleFullScreen() {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../../img/sound.png);
-    filter: invert(1);
+    // filter: invert(1);
     transition: all 0.1s;
     opacity: 0.75;
-}
 
-.Button:hover {
-    transform-origin: 50% 50%;
-    transform: scale(1.1);
-    transition: all 0.1s
+    &:hover {
+        transform-origin: 50% 50%;
+        transform: scale(1.1);
+        transition: all 0.1s
+    }
 }
 </style>
