@@ -52,6 +52,22 @@
   }
 }
 
+.foldBot-enter-active {
+  animation: foldBot 1.5s reverse;
+}
+
+.foldTop-enter-active {
+  animation: foldTop 1s reverse;
+}
+
+.foldTop-leave-active {
+  animation: foldTop 1.5s;
+}
+
+.foldBot-leave-active {
+  animation: foldBot 1s;
+}
+
 @keyframes windy {
   33% {
     border-top-left-radius: 10% 60%;

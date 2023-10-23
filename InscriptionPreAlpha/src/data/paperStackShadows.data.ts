@@ -14,8 +14,8 @@ const shadows = [
     left: 46.5,
     size: 7,
     initSpread : 16,
-    spread: 114,
-    rotate: 190,
+    spread:0,
+    rotate: 250,
     relativeShadowPos : 3,
     id: 'secondShadow'
   },
@@ -63,21 +63,21 @@ const virtualShadows = [
         posX: 61,
         posY: 18,
         shadowType: 2,
-        shadowCorrection: 120,
+        shadowCorrection: 130,
         index: 1
     },
     {
         posX: 60,
-        posY: 25,
+        posY: 30,
         shadowType: 2,
         shadowCorrection: 85,
         index: 2
     },
     {
         posX: 40,
-        posY: 34,
+        posY: 30,
         shadowType: 3,
-        shadowCorrection: 270,
+        shadowCorrection: 275,
         index: 3
     },
     {

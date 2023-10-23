@@ -9,6 +9,8 @@ const props = defineProps({
 
 const shadows = ref(dataShadows)
 const virtualShadows = ref(dataVirtualShadows) // data for shadow position compared to mouse position
+const calcConst1 = 0.2131147540983607
+const calcConst2 = 0.475
 
 const stateActive = reactive({
     shadow: false,
@@ -55,6 +57,8 @@ function convertToDegree(radian: number) {
 function move(event: MouseEvent) {
     mousePosition.posX = (event.pageX * 100) / document.querySelector('#menu')!.clientWidth
     mousePosition.posY = (event.pageY * 100) / document.querySelector('#menu')!.clientWidth
+    mousePosition.posX = ((mousePosition.posX - 20) * calcConst1) + 44 // raise the area
+    mousePosition.posY = (mousePosition.posY * calcConst2) + 22
     for (let virtualShadow of virtualShadows.value) {
         shadows.value[virtualShadow.index].spread = distance(virtualShadow.posX, virtualShadow.posY) + shadows.value[virtualShadow.index].initSpread
         shadows.value[virtualShadow.index].rotate = 360 - angle(virtualShadow.posX, virtualShadow.posY, shadows.value[virtualShadow.index].spread, virtualShadow.shadowType, virtualShadow.shadowCorrection)!
@@ -84,13 +88,25 @@ function mouseOver() {
 <style scoped lang='scss'>
 @use '../../../assets/base.scss' as *;
 
+
+// the same zone but on the ground
+// .moveSection {
+//     position: absolute;
+//     z-index: 9;
+//     top: 22vw;
+//     left: 44vw;
+//     height: 19vw;
+//     width: 13vw;
+//     background-color: rgba(255, 0, 0, 0.432);
+// }
+
 .moveSection {
     position: absolute;
     z-index: 9;
-    top: 22vw;
-    left: 44vw;
-    height: 19vw;
-    width: 13vw;
+    top: 0vw;
+    left: 20vw;
+    height: 40vw;
+    width: 61vw;
     background-color: rgba(255, 0, 0, 0);
 }
 

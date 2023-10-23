@@ -24,6 +24,7 @@ function color(black: Boolean) {
 }
 
 onDeactivated(() => {
+    console.log('ok')
     if (document.fullscreenElement) {
         document.exitFullscreen()
     }

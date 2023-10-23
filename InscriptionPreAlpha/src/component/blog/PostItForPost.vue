@@ -42,8 +42,8 @@ function isOverflown() {
         </div>
         <textarea disabled="true" @keyup="isOverflown()" @keydown="isOverflown()" id='textPostIt' name='text'
             placeholder="Un petit message..." class="textTrue" v-model="text" />
-        <textarea ref="input" @keyup="isOverflown()" @keydown="isOverflown()" id='textPostItSimulation' name='text'
-            class="textSimulation" v-model="textSimulation" />
+        <textarea ref="input" spellcheck="false" @keyup="isOverflown()" @keydown="isOverflown()" id='textPostItSimulation'
+            name='text' class="textSimulation" v-model="textSimulation" />
     </section>
 </template>
 

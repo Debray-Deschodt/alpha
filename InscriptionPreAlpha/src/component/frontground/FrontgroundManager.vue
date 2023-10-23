@@ -1,10 +1,11 @@
 <script setup lang='ts'>
 /* manage wich poster is active or not */
-import PosterBlog from './PosterBlog.vue'
-import PosterRegister from './PosterRegister.vue'
-import PosterAbout from './PosterAbout.vue'
-import PosterRules from './PosterRules.vue'
+import PosterBlog from './poster/PosterBlog.vue'
+import PosterRegister from './poster/PosterRegister.vue'
+import PosterAbout from './poster/PosterAbout.vue'
+import PosterRules from './poster/PosterRules.vue'
 import { ref, watch } from 'vue';
+import Newspaper from './newspaper/NewspaperManager.vue'
 
 const emit = defineEmits<{
     (e: 'done', from: string): void
@@ -35,9 +36,8 @@ watch(() => props.title, () => {
             @busy="isItAvailable = false" @free="isItAvailable = true" />
         <PosterRules :available="isItAvailable" @busy="isItAvailable = false" @free="isItAvailable = true" />
         <PosterAbout :available="isItAvailable" @busy="isItAvailable = false" @free="isItAvailable = true" />
-        <button @click="emit('done', 'menu')" style="top: 91vh; left: 5vw">Quitter</button>
-        <!-- <button style="top: 91vh; left: 43vw">Lancer une partie</button> -->
-        <button style="top: 91vh; left: 85vw">Réglages</button>
+
+        <Newspaper />
     </section>
 </template>
 
@@ -61,8 +61,19 @@ h1 {
     letter-spacing: 0.3vw;
 }
 
-button {
+footer {
     position: absolute;
+    z-index: 1000;
+    left: 3vw;
+    top: 91.5vh;
+    width: 10vw;
+    display: flex;
+    justify-content: space-between;
+
+    & button {
+        border: none;
+    }
+
 }
 
 .fadeOut-leave-active {

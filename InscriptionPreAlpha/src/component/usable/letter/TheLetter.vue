@@ -68,6 +68,7 @@ section {
     transform-origin: 0% 0%;
     transition: all 1.5s;
     perspective: 80vw;
+    z-index: 8;
 }
 
 .footer {

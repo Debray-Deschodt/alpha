@@ -1,0 +1,30 @@
+
+section{
+    display: flex;
+}
+
+.mt05{
+    margin-top: 0.5;
+}
+
+div{
+    margin:0;
+}
+
+h2{
+    font-family: 'DM Serif Display', serif;
+    font-size: 2vw;
+    color:black;
+    border-bottom: black 0.2vw solid;
+    margin: 0 0.5vw 0 0.5vw;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1vw;
+    text-align: justify;
+    color: black;
+    margin: 0 0.5vw;
+    line-height: 1.4vw;
+    margin: 0.5vw;
+}

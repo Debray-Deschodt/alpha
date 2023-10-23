@@ -2,26 +2,89 @@ ___________________ A Faire ____________________
 V-----bug-----V
 resoudre le bug dans le blog de d'agrandissement de la page en metant un postit trop bas
 corriger le bug de deplacement de postit
-corriger le bug de retour a la ligne
+<!> faire une version mobile rapide
+changer de nom de compte fait perdre son courrier d'inscription
 V---serveur---V
 renouvellement automatique du certificat https
+annonymiser les postits (retour serveur donne les ip et les nom d'utilisateur)
+proteger les modification de User par des ensureUsername
 V----blog-----V
 faire une animation de postit lorsque l'on en deplace un, en fonction de la vitesse de la souris 
-enlever le correcteur orthographique de la partie post/visualisateur
 V-----menu----V
 animation berangere
+mettre des fx
 animation oscar
 faire un curseur pour le menu
 finir la seconde page de journal
-son de machine a ecrire
-faire des queries sur le form d'inscription a la prealpha pour recuperer l'adresse mail.
 V--connection--V
+mail de recuperation
+mail de verification
 une section a propos
 ________________________________________________
-finir la premiere page de journal
-faire une affiche journal
-elargir la zone d'ombre des piles de feuille
+transmettre le site a tous les gens que tu connais
+_____________________Fait_______22/10___________
+mettre une animation de berangere qui descend la page
+mettre une lettre 
+mettre un bouton pour le changement de pseudo
+mettre les boutons d'affiche a gauche 
+________________________________________________
 
+_____________________Fait_______22/10___________
+ajouter des boutons jouer/connexion/inscription a la fin
+ajouter la partie generation aleatoire de surnom
+les mettre en place avec des animation
+faire les images illustrative des texts
+mettre en place les texts
+ecrire les texts de la page d'accueil
+faire la section accueil
+une section pour modifier son compte
+une section pour reporter des bug
+ecrire la section a propos
+________________________________________________
+
+_____________________Fait_______21/10___________
+rajouter des info sur l'affiche postIt tel qu'une explication du clic droit
+reparation de la couleur du bouton fullscreen suite a un reload
+reparation de l'unscreen
+retravailler encore la page de connection
+corriger le bug des cookies
+dernieres modifs du journal 
+mettre un postIt sur l'affiche blog 
+mettre en place des cookies pour la partie son
+developper la partie option
+________________________________________________
+
+_____________________Fait_______20/10___________
+son de machine a ecrire
+baisser le son
+corriger le bug de son lorsque l'on quitte le blog
+modifier la partie son
+rendre le menu reglage disponible dans le menu postit
+des compteurs pour les nicknames
+finir la premiere page de journal
+Le bouton quitter passe deriere les affiches
+________________________________________________
+
+_____________________Fait_17/10_18/10_19/10_____
+faire des queries sur le form d'inscription a la prealpha pour recuperer l'adresse mail.
+faire une section disponible pour les admins
+faire l'application nickname
+retravailler la structure de la page de connection
+________________________________________________
+
+_____________________Fait_______16/10___________
+faire une affiche journal
+________________________________________________
+
+_____________________Fait_______15/10___________
+corriger la taille des tips des affiches
+commencer a refactoriser le journal de la version precedante
+refactoriser la partie poster
+faire corriger la symetrie des ombres des deux grandes piles
+enlever le correcteur orthographique de la partie post/visualisateur
+elargir la zone d'ombre des piles de feuille
+corriger le bug de l'affiche blog qui ne disparait pas lorsque l'on ouvre le blog
+________________________________________________
 
 _____________________Fait_______14/10___________
 faire le formulaire d'inscription a la beta
