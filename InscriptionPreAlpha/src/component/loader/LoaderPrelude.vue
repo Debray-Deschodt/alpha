@@ -53,7 +53,7 @@ onMounted(() => {
         <input ref="input" @keydown="emit('done')" id='loaderSkiper' name='loaderSkiper' />
         <h1 id="loaderTitle">{{ title.value }}<a style="color:transparent">{{ title.rest }}</a></h1>
         <Transition name="fade">
-            <h2 v-if="stateActive.present" id="present">Present</h2>
+            <h2 v-if="stateActive.present" id="present">Presents</h2>
         </Transition>
         <Transition name="fade">
             <h3 v-if="stateActive.continue">- Cliquer pour continuer -</h3>

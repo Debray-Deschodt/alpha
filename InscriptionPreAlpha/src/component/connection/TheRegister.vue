@@ -207,7 +207,7 @@ watch(() => username?.value, () => {
             <button v-if="stateActive.connected" id="reportButton" @click="manager('report')">Signaler un bug</button>
             <div v-show="stateActive.connected" style="display: flex; width:auto;">
                 <button id="accountButton" @click="manager('account')">{{ nickname }}</button>
-                <button @click="deconnection()">Déconnection</button>
+                <button @click="deconnection()">Déconnexion</button>
             </div>
             <div v-show="!stateActive.connected" style="display: flex; width:auto;">
                 <button id="connectionButton" @click="manager('connection')">
@@ -234,7 +234,7 @@ watch(() => username?.value, () => {
         <!-- report bug part -->
         <div v-show="stateActive.report" class="flex report">
             <input type="text" v-model="report.title" placeholder="Titre" />
-            <textarea v-model="report.text" placeholder="Un petit text explicatif..." />
+            <textarea v-model="report.text" placeholder="Un petit texte explicatif..." />
             <button class="button-next" @click="reportToServer(report.title, report.text)">→</button>
         </div>
 

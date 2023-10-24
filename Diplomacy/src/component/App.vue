@@ -9,10 +9,10 @@ import Blog from './blog/TheBlog.vue'
 //provide doesn't work with reactive, we needs ref before a future fix.
 const username = ref('')
 const password = ref('')
-function setUsername(usernameValue: string) { state.account.username = usernameValue }
-function setPassword(passwordValue: string) { state.account.password = passwordValue }
 provide('username', username)
+function setUsername(usernameValue: string) { state.account.username = usernameValue }
 provide('password', password)
+function setPassword(passwordValue: string) { state.account.password = passwordValue }
 
 const state = reactive({
   active: {

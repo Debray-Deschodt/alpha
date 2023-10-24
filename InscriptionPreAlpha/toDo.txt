@@ -21,8 +21,9 @@ mail de recuperation
 mail de verification
 une section a propos
 ________________________________________________
+
+_____________________Fait_______23/10___________
 transmettre le site a tous les gens que tu connais
-_____________________Fait_______22/10___________
 mettre une animation de berangere qui descend la page
 mettre une lettre 
 mettre un bouton pour le changement de pseudo

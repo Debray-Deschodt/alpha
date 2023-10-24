@@ -1,7 +1,18 @@
 const passport = require("passport")
+const mongoose = require('mongoose')
+const {findUserPerSessionId, findUserPerEmail} = require('../queries/user.queries')
 
-exports.sessionNew = (req, res, next)=>{
-    res.end()
+exports.sessionNew = async (req, res, next)=>{
+    try{
+        const user = await findUserPerSessionId(req.signedCookies['connect.sid'])
+        res.json({username : user.local.email, admin: user.local.admin, mail: user.local.mail})
+        const date = new Date()
+        date.setHours(date.getHours() + 2)
+        console.log(user.local.email, date.toUTCString() )
+    }catch(e){
+        console.log(e)
+        res.status(403).end()
+    }
 }
 
 exports.sessionCreate = (req, res, next)=>{
@@ -15,7 +26,10 @@ exports.sessionCreate = (req, res, next)=>{
                     if(err){
                         next(err)
                     }else{
-                        res.json(req.user.local.email)
+                        const user = findUserPerEmail(req.body.email).then((document)=>{
+                            // console.log(user)
+                            res.json({username : document.local.email, admin: document.local.admin})
+                        }).catch((e)=>console.log(e))
                     }
                 })
             }
@@ -28,6 +42,6 @@ exports.sessionDelete = (req, res, next)=>{
         if(err){
             return next(err)
         }
-        res.json('you\'ve been deconnected')
+        res.json('Vous avez été déconnecté')
     })
 }

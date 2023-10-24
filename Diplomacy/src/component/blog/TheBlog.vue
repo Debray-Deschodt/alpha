@@ -89,7 +89,7 @@ refresh()
 <template>
     <section id="blog" class="component-full">
         <Fullscreen />
-
+        <input type="range">
         <PostIt v-for="postIt in postIts" :data="postIt" :key="postIt.index" :lastIndex="drag" />
 
         <div class="hidder"></div>
